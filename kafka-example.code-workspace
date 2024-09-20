@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "order-service"
+		},
+		{
+			"path": "product-service"
+		},
+		{
+			"name": "common-masters",
+			"path": "common-masters"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
