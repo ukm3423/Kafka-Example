@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.common_masters.common.Order;
+import com.common_masters.common.OrderDTO;
 import com.order_service.services.OrderService;
 
 @RestController
@@ -23,7 +23,7 @@ public class OrderController {
 
 
   @PostMapping("/place-order")
-  public ResponseEntity<Map<Object, Object>> placeOrder(@RequestBody Order order) {
+  public ResponseEntity<Map<Object, Object>> placeOrder(@RequestBody OrderDTO order) {
 
     if (order == null) {
       return ResponseEntity.badRequest().body(null);
