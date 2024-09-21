@@ -10,8 +10,7 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
-import com.common_masters.common.Order;
-import com.common_masters.model.Product;
+import com.common_masters.common.OrderDTO;
 
 
 @Service
@@ -23,13 +22,13 @@ public class OrderProducer {
     private NewTopic topic;
 
     @Autowired
-    private KafkaTemplate<String, Product> kafkaTemplate;
+    private KafkaTemplate<String, OrderDTO> kafkaTemplate;
   
-    public void sendMessage(Order event) {
+    public void sendMessage(OrderDTO event) {
         LOGGER.info(String.format("\nOrderService Send to the ProductService => %s", event.toString()));
 
         // CREATING MESSAGE
-        Message<Order> message = MessageBuilder
+        Message<OrderDTO> message = MessageBuilder
                 .withPayload(event)
                 .setHeader(KafkaHeaders.TOPIC, topic.name())
                 .build();
