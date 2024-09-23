@@ -8,30 +8,28 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.common_masters.common.OrderDTO;
 import com.order_service.services.OrderService;
 
 @RestController
-@RequestMapping("/api")
 public class OrderController {
 
   @Autowired
   private OrderService orderService;
 
-
-  @PostMapping("/place-order")
+  @PostMapping("/api/place-order")
   public ResponseEntity<Map<Object, Object>> placeOrder(@RequestBody OrderDTO order) {
 
     if (order == null) {
       return ResponseEntity.badRequest().body(null);
     }
 
+    System.out.println("\n\n\n Order : " + order);
     String resp = orderService.placeOrder(order);
 
-    Map<Object, Object> result = new HashMap<Object, Object>();
+    Map<Object, Object> result = new HashMap<>();
     result.put("response", resp);
     result.put("status", "success");
     result.put("message", "Order placed successfully");

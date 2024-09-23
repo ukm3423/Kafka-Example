@@ -1,5 +1,7 @@
 package com.product_service.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,10 @@ public class ProductService {
     System.out.println("Order saved successfully");
 
     return orderRepo.save(order);
+  }
+
+  public List<Order> getOrderList(){
+    return orderRepo.findAll();
   }
 
 }
