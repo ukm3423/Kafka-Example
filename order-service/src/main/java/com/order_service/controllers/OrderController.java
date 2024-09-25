@@ -19,7 +19,7 @@ public class OrderController {
   @Autowired
   private OrderService orderService;
 
-  @PostMapping("/api/place-order")
+  @PostMapping("/place-order")
   public ResponseEntity<Map<Object, Object>> placeOrder(@RequestBody OrderDTO order) {
 
     if (order == null) {
